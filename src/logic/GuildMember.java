@@ -8,9 +8,10 @@ public class GuildMember {
 
 	public GuildMember(String name, String jobTitle, int salary) {
 		// TODO: Value constructor. Instantiates a member with the given values.
-		this.name = name;
-		this.jobTitle = jobTitle;
-		this.salary = salary;
+		setName(name);
+		setJobTitle(jobTitle);
+		setSalary(salary);
+		setMyDepartment("Unassigned");
 	}
 
 	public String getName() {
@@ -61,17 +62,16 @@ public class GuildMember {
 	}
 
 	public void setSalary(int salary) {
-		//TODO: Set the member's salary.
-		//If it is less than 0, set is as 0.
-		//If it is greater than 100000, set is as 100000.
+		// TODO: Set the member's salary.
+		// If it is less than 0, set is as 0.
+		// If it is greater than 100000, set is as 100000.
 		if (salary < 0) {
-			this.salary = 0;
+			salary = 0;
 		} else if (salary > 100000) {
-			this.salary = 100000;
+			salary = 100000;
 		}
-			this.salary = salary;
-		}
-
+		this.salary = salary;
+	}
 
 	// ------------------------------------------
 	// ---do not edit anything below this line---

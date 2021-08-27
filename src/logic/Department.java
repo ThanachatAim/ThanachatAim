@@ -9,16 +9,18 @@ public class Department {
 	public Department(String name) {
 		// TODO: Write a constructor here. Initialize a new ArrayList of
 		// departmentMembers and set the name of the department.
-		this.name = name;
+		setName(name);
+		departmentMembers = new ArrayList<GuildMember>();
+
 	}
 
 	public boolean setName(String name) {
 		// TODO: Set name of the department. If the name is blank, return false.
-		if (name != null) {
+		if (name.isBlank()) {
+			return false;
+		} else {
 			this.name = name;
 			return true;
-		} else {
-			return false;
 		}
 	}
 
@@ -31,29 +33,36 @@ public class Department {
 	public void addMember(GuildMember m) {
 		// TODO: Add the a guild member to the guild and set their department to this
 		// one.
+		departmentMembers.add(m);
+		m.setMyDepartment(this.name);
+
 	}
 
 	public void addMultipleMembers(ArrayList<GuildMember> memberList) {
 		// TODO: Add all guild members in memberList to this department. Don't forget to
 		// set the department as well.
+		for (int i = 0; i < memberList.size(); i++) {
+			this.addMember(memberList.get(i));
+		}
 	}
 
 	public GuildMember removeMember(int index) {
 		// TODO: Remove a member from a given index, and returns the removed member.
-
-		return null;
+		GuildMember mem = departmentMembers.get(index);
+		departmentMembers.remove(index);
+		return mem;
 	}
 
 	public GuildMember getMember(int index) {
 		// TODO: Get a member from a given index.
 
-		return null;
+		return departmentMembers.get(index);
 	}
 
 	public ArrayList<GuildMember> getAllMembers() {
 		// TODO: Return all members in this department.
 
-		return null;
+		return departmentMembers;
 	}
 
 	// ------------------------------------------
