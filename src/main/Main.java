@@ -39,6 +39,7 @@ public class Main {
 			if (newName.isBlank()) {
 				throw new EmptyGuildNameException();
 			} else if (myDatabase.createDepartment(newName)) {
+				System.out.println(newName + " Department created!");
 				return true;
 			} else {
 				throw new DuplicateGuildNameException();
